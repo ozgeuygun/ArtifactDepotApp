@@ -1,0 +1,34 @@
+<div class="container mt-4" style="padding-top: 80px;">
+  
+    <form [formGroup]="depotForm">
+      <h3 *ngIf="isEdit; else createTitle">Update depot</h3>
+      <ng-template #createTitle>
+        <h3>Create New depot</h3>
+      </ng-template>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">depot name</label>
+      <input type="text" class="form-control" formControlName="depotName" >
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">depot latitude</label>
+        <input type="text" class="form-control" formControlName="depotLatitude" >
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">depot longitude</label>
+        <input type="text" class="form-control" formControlName="depotLongitude" >
+      </div>
+      <div class="form-group">
+        <label for="durum">Active</label>
+        <input type="checkbox" formControlName="isActive">
+    </div>
+
+    <div *ngIf="isEdit; else createButton">
+      <button class="btn btn-primary" (click)="update()" type="button">Update</button>
+    </div>
+    <ng-template #createButton>
+      <button class="btn btn-success" (click)="create()" type="button">Create</button>
+    </ng-template>
+  </form>
+  
+</div>

@@ -1,0 +1,46 @@
+<div class="container mt-4" style="padding-top: 80px;">
+  <form [formGroup]="detailForm">
+    <h3 *ngIf="isEdit; else createTitle">Update Detail</h3>
+    <ng-template #createTitle>
+      <h3>Create New Detail</h3>
+    </ng-template>
+  
+        <input type="hidden" formControlName="detailId" value="detailId" >
+      <label for="exampleInputEmail1">Condition</label>
+      <input type="text" class="form-control"  formControlName="condition">
+  
+    <div class="form-group">
+        <label for="exampleInputEmail1">Shelf</label>
+        <input type="text" class="form-control"  formControlName="shelf">
+      </div>
+     
+      <div class="form-group">
+        <label for="durum">Status</label>
+        <input type="checkbox" formControlName="status">
+    </div>
+    
+  <div class="form-group">
+    <label >Select Artifact</label>
+    <select formControlName="artifactId" class="form-control" >
+      <option value="">Select</option>
+      <option *ngFor="let artifact of artifactList" [value]="artifact.artifactId">{{artifact.artifactName}}</option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label >Select Depot</label>
+    <select formControlName="depotId" class="form-control" >
+      <option value="">Select</option>
+      <option *ngFor="let depot of depotList" [value]="depot.depotId">{{depot.depotName}}</option>
+    </select>
+  </div>
+  
+    <div *ngIf="isEdit; else createButton">
+      <button class="btn btn-primary" (click)="update()" type="button">Update</button>
+    </div>
+    <ng-template #createButton>
+      <button class="btn btn-success" (click)="create()" type="button">Create</button>
+    </ng-template>
+  </form>
+  
+</div>

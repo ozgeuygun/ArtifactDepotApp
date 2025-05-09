@@ -1,0 +1,10 @@
+.icon-style {
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  

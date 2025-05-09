@@ -1,0 +1,71 @@
+
+<div class="container" style="padding-top: 80px;">
+  <div class="row">
+
+    <div class="col-md-2 mb-3">
+      <label for="artifactNameFilter">Artifact Name</label>
+      <input id="artifactNameFilter" type="text" class="form-control" (keyup)="applyArtifactNameFilter($event)" placeholder="Artifact Name">
+    </div>
+
+    <div class="col-md-2 mb-3">
+      <label for="materialFilter">Material</label>
+      <select id="materialFilter" class="form-control" (change)="applyMaterialFilter($event)">
+        <option value="">Select</option>
+        <option *ngFor="let material of materialList" [value]="material.artifactMaterialId">{{material.artifactMaterialName}}</option>
+      </select>
+    </div>
+
+    <div class="col-md-2 mb-3">
+      <label for="categoryFilter">Category</label>
+      <select id="categoryFilter" class="form-control" (change)="applyCategoryFilter($event)">
+        <option value="">Select</option>
+        <option *ngFor="let category of categoryList" [value]="category.artifactCategoryId">{{category.categoryName}}</option>
+      </select>
+    </div>
+
+    <div class="col-md-2 mb-3">
+      <label for="siteFilter">Site</label>
+      <select id="siteFilter" class="form-control" (change)="applySiteFilter($event)">
+        <option value="">Select</option>
+        <option *ngFor="let site of siteList" [value]="site.excavationSiteId">{{site.siteName}}</option>
+      </select>
+    </div>
+
+    <div class="col-md-2 mb-3">
+      <label for="artifactLatFilter">Artifact Latitude</label>
+      <input id="artifactLatFilter" type="number" class="form-control" (keyup)="applyArtifactLatitudeFilter($event)" placeholder="Filter by Artifact Latitude">
+    </div>
+
+    <div class="col-md-2 mb-3">
+      <label for="artifactLonFilter">Artifact Longitude</label>
+      <input id="artifactLonFilter" type="number" class="form-control" (keyup)="applyArtifactLongitudeFilter($event)" placeholder="Filter by Artifact Longitude">
+    </div>
+  </div>
+
+  <table class="table table-bordered mt-4">
+    <thead>
+      <tr>
+        <th>Artifact ID</th>
+        <th>Artifact Name</th>
+        <th>Material</th>
+        <th>Category</th>
+        <th>Width</th>
+        <th>Height</th>       
+        <th>Artifact Latitude</th>
+        <th>Artifact Longitude</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let element of isDeletedArtifacts; let i = index; trackBy: trackById">
+        <td>{{element.artifactId}}</td>
+        <td>{{element.artifactName}}</td>
+        <td>{{getMaterialName(element.artifactMaterialId)?.artifactMaterialName}}</td>
+        <td>{{getCategoryName(element.artifactCategoryId)?.categoryName}}</td>
+        <td>{{element.width}}</td>
+        <td>{{element.height}}</td>         
+        <td>{{element.artifactLatitude}}</td>
+        <td>{{element.artifactLongitude}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

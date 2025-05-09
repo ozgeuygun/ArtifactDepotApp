@@ -1,0 +1,41 @@
+
+<div class="container-fluid" style="padding-top: 80px;"> 
+  
+  <div class="table-container">
+    <table class="table table-striped table-bordered mt-4">
+      <thead>
+        <tr>
+          <th>Depot ID</th>
+          <th>Artifact Name</th>
+          <th>Shelf</th>     
+          <th>Condition</th>
+          <th>Depot Name</th>
+          <th>Depot Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let detail of detailList; let i = index; trackBy: trackById">
+          <td>{{detail.detailId}}</td>
+          <td>{{getArtifactName(detail.artifactId)?.artifactName}}</td>
+          <td>{{detail.shelf}}</td> 
+          <td>
+            <span class="badge"
+              [ngClass]="{
+                'bg-success': detail.condition === 'Well',
+                'bg-warning': detail.condition === 'Worn',
+                'bg-danger': detail.condition === 'Damaged'
+              }">
+              {{ detail.condition }}
+            </span>
+          </td>
+          <td>{{getDepotName(detail.depotId)?.depotName}}</td>
+          <td>
+            <button class="btn btn-info btn-sm text-white" (click)="goToMap(detail)">Show on Map</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="map" style="height: 400px; width: 100%; display: none;"></div> 
+

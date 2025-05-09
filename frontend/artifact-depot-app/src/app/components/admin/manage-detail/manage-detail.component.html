@@ -1,0 +1,28 @@
+
+<div class="container mt-4" style="padding-top: 80px;">
+<table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Detail ID.</th>
+        <th>Artifact Name</th>
+        <th>Shelf</th> 
+        <th>Condition</th>
+        <th>Depot Name</th>    
+        <th>Update</th>     
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let detail of detailList; let i = index; trackBy: trackById">
+            <td>{{detail.detailId}}</td>
+            <td>{{getArtifactName(detail.artifactId)?.artifactName}}</td>
+            <td>{{detail.shelf}}</td> 
+            <td>
+            <span class="badge" [ngClass]="{ 'bg-success': detail.condition === 'Well', 'bg-warning': detail.condition === 'Worn', 'bg-danger': detail.condition === 'Damaged'}">{{ detail.condition }}</span>
+            </td>      
+            <td>{{getDepotName(detail.depotId)?.depotName}}</td>
+           <td><button class="btn btn-warning" [routerLink]="'/admin/manage-detail/update/'+detail.detailId">Update </button></td>   
+      </tr>
+    </tbody>
+  </table> 
+   <button class="btn btn-primary" routerLink='/admin/manage-detail/create'>Create </button>
+  </div>

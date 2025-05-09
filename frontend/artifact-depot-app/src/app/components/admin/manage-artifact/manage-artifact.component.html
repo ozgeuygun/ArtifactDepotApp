@@ -1,0 +1,46 @@
+
+<div class="container mt-4" style="padding-top: 80px;"> 
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Artifact ID.</th>
+        <th>Artifact Name</th>
+        <th>Width</th>
+        <th>Height</th>
+        <th>Status</th>
+        <th>Site Latitude</th>
+        <th>Site Longitude</th>
+        <th>Artifact Latitude</th>
+        <th>Artifact Longitude</th>
+        <th>Category</th>
+        <th>Material</th>
+        <th>Update</th>      
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let artifact of artifactList; let i = index; trackBy: trackById">
+        <td>{{artifact.artifactId}}</td>
+        <td>{{artifact.artifactName}}</td>
+        <td>{{artifact.width}}</td>
+        <td>{{artifact.height}}</td>
+        <td>{{artifact.isDeleted}}</td>
+        <td>{{getSiteName(artifact.excavationSiteId)?.siteLatitude}}</td>
+        <td>{{getSiteName(artifact.excavationSiteId)?.siteLongitude}}</td>
+        <td>{{artifact.artifactLatitude}}</td>
+        <td>{{artifact.artifactLongitude}}</td>
+        <td>{{getCategoryName(artifact.artifactCategoryId)?.categoryName}}</td>
+        <td>{{getMaterialName(artifact.artifactMaterialId)?.artifactMaterialName}}</td>
+        <td>
+          <button class="btn btn-warning" [routerLink]="'/admin/artifact/update/' + artifact.artifactId">
+            Update
+          </button>
+        </td>   
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="btn btn-primary" routerLink="/admin/artifact/create">Create</button>
+
+</div>
+

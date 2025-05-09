@@ -1,0 +1,47 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="form-container">
+        <form [formGroup]="signUpForm" class="bg-white p-4 shadow rounded" style="height: auto; width: 300px;">
+            <div class="form-group mb-3">
+                <div class="input-field position-relative">
+                    <span class="fa fa-user position-absolute top-50 start-0 translate-middle-y p-2"></span>
+                    <input formControlName="FirstName" type="text" class="form-control ps-5" placeholder="FirstName" required>
+                </div>
+                <small *ngIf="signUpForm.controls['FirstName'].dirty && signUpForm.hasError('required','FirstName')" class="text-danger">*FirstName is required</small>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-field position-relative">
+                    <span class="fa fa-lock position-absolute top-50 start-0 translate-middle-y p-2"></span>
+                    <input formControlName="LastName" type="text" class="form-control ps-5" placeholder="LastName" required>
+                </div>
+                <small *ngIf="signUpForm.controls['LastName'].dirty && signUpForm.hasError('required','LastName')" class="text-danger">*LastName is required</small>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-field position-relative">
+                    <span class="fa fa-user position-absolute top-50 start-0 translate-middle-y p-2"></span>
+                    <input formControlName="Email" type="email" class="form-control ps-5" placeholder="Email" required>
+                </div>
+                <small *ngIf="signUpForm.controls['Email'].dirty && signUpForm.hasError('required','Email')" class="text-danger">*Email is required</small>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-field position-relative">
+                    <span class="fa fa-user position-absolute top-50 start-0 translate-middle-y p-2"></span>
+                    <input formControlName="Username" type="text" class="form-control ps-5" placeholder="Username" required>
+                </div>
+                <small *ngIf="signUpForm.controls['Username'].dirty && signUpForm.hasError('required','Username')" class="text-danger">*Username is required</small>
+            </div>
+            <div class="form-group mb-3">
+                <div class="input-field position-relative">
+                    <span class="fa fa-user position-absolute top-50 start-0 translate-middle-y p-2"></span>
+                    <input formControlName="Password" type="password" class="form-control ps-5" placeholder="Password" required>
+                </div>
+                <small *ngIf="signUpForm.controls['Password'].dirty && signUpForm.hasError('required','Password')" class="text-danger">*Password is required</small>
+            </div>
+            <button (click)="onSignup()"  type="submit" class="btn btn-primary w-100">Sign Up</button>
+
+            <div class="mt-2 d-flex justify-content-between">
+                <a href="#" class="text-decoration-none">Forgot Password?</a>
+                <a href="#" class="text-decoration-none">Don't have an account?</a>
+            </div>
+        </form>
+    </div>
+</div>

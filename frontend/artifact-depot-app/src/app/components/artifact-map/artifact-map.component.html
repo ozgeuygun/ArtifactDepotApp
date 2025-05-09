@@ -1,0 +1,25 @@
+<div class="container mt-4" style="padding-top: 80px;">
+<div class="container mt-3">
+    
+    <div class="btn-group mb-3" role="group">
+      <button class="btn btn-outline-warning" (click)="filterArtifactsByMaterialId(1)">Stone</button>
+      <button class="btn btn-outline-success" (click)="filterArtifactsByMaterialId(2)">Clay</button>
+      <button class="btn btn-outline-secondary" style="background-color: purple; color: white;" (click)="filterArtifactsByMaterialId(3)">Metal</button>
+      <button class="btn btn-outline-info" (click)="filterArtifactsByMaterialId(4)">Glass</button>
+      <button class="btn btn-outline-dark" (click)="filterArtifactsByMaterialId(5)">Wood</button>
+    </div>
+    
+    <div class="btn-group mb-3" role="group">
+      <button class="btn btn-outline-danger" (click)="filterArtifactsByCategoryId(1)">Statue</button>
+      <button class="btn btn-outline-primary" (click)="filterArtifactsByCategoryId(2)">Ceramic</button>
+      <button class="btn btn-outline-secondary" (click)="filterArtifactsByCategoryId(3)">Inscription</button>
+      <button class="btn btn-outline-warning" (click)="filterArtifactsByCategoryId(4)">Jewelry</button>
+    </div>
+
+    <div class="mb-3">
+      <button class="btn btn-outline-primary" (click)="showAllArtifacts()">Show all</button>
+    </div>
+    <div id="map" style="width: 100%; height: 600px; border: 2px solid #ccc; border-radius: 8px;"></div>
+    
+  </div>
+</div>

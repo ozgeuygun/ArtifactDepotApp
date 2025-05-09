@@ -1,0 +1,64 @@
+<div class="container mt-4" style="padding-top: 80px;">
+<form [formGroup]="artifactForm">
+  <h3>{{ isEdit ? 'Update Artifact' : 'Create New Artifact' }}</h3>
+  <input type="hidden" formControlName="artifactId">
+
+  <div class="form-group">
+    <label for="artifactName">Artifact Name</label>
+    <input type="text" class="form-control" placeholder="Name" formControlName="artifactName">
+  </div>
+
+  <div class="form-group">
+    <label>Width</label>
+    <input type="number" class="form-control" formControlName="width">
+  </div>
+
+  <div class="form-group">
+    <label>Height</label>
+    <input type="number" class="form-control" formControlName="height">
+  </div>
+
+  <div class="form-group">
+    <label>Status</label>
+    <input type="checkbox" formControlName="isDeleted">
+  </div>
+
+  <div class="form-group">
+    <label>Filter by Material</label>
+    <select formControlName="artifactMaterialId" class="form-control">
+      <option value="">Select Material</option>
+      <option *ngFor="let material of materialList" [value]="material.artifactMaterialId">{{material.artifactMaterialName}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Filter by Category</label>
+    <select formControlName="artifactCategoryId" class="form-control">
+      <option value="">Select Category</option>
+      <option *ngFor="let category of categoryList" [value]="category.artifactCategoryId">{{category.categoryName}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Filter by Site</label>
+    <select formControlName="excavationSiteId" class="form-control">
+      <option value="">Select Site</option>
+      <option *ngFor="let site of siteList" [value]="site.excavationSiteId">{{site.siteName}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Artifact Latitude</label>
+    <input type="text" class="form-control" formControlName="artifactLatitude">
+  </div>
+
+  <div class="form-group">
+    <label>Artifact Longitude</label>
+    <input type="text" class="form-control" formControlName="artifactLongitude">
+  </div>
+
+  <button class="btn btn-primary" type="button" (click)="isEdit ? update() : create()">
+    {{ isEdit ? 'Update' : 'Create' }}
+  </button>
+</form>
+</div>

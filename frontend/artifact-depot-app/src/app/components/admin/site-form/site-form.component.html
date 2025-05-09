@@ -1,0 +1,30 @@
+<div class="container mt-4" style="padding-top: 80px;">
+  <form [formGroup]="siteForm">
+    <h3 *ngIf="isEdit; else createTitle">Update Site</h3>
+    <ng-template #createTitle>
+      <h3>Create New Site</h3>
+    </ng-template>
+  
+    <div class="form-group">
+      <label for="exampleInputEmail1">site</label>
+      <input type="text" class="form-control" formControlName="siteName" >
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">site-lat</label>
+        <input type="text" class="form-control" formControlName="siteLatitude" >
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">site-long</label>
+        <input type="text" class="form-control" formControlName="siteLongitude" >
+      </div>
+
+    <div *ngIf="isEdit; else createButton">
+      <button class="btn btn-primary" (click)="update()" type="button">Update</button>
+    </div>
+    <ng-template #createButton>
+      <button class="btn btn-success" (click)="create()" type="button">Create</button>
+    </ng-template>
+  </form>
+  
+  </div>

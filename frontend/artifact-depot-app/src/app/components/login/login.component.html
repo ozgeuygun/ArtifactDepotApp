@@ -1,0 +1,49 @@
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/">ArtifactDepotApp</a>
+    </div>
+  </nav>
+  
+
+  <div class="d-flex justify-content-center bg-light"
+       style="min-height: 100vh; padding-top: 80px;">
+    
+    <form [formGroup]="loginForm"
+          (ngSubmit)="onSubmit()"
+          style="background-color: #fff; padding: 2rem; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-radius: 1rem; max-width: 360px; width: 100%; min-height: 520px;">
+      <h4 class="text-center mb-4">Log in</h4>
+  
+      <div style="position: relative; margin-bottom: 1.5rem;">
+        <span class="fa fa-user"
+              style="position: absolute; left: 15px; top: 0; bottom: 0; margin: auto; height: 100%; display: flex; align-items: center; color: #6c757d;"></span>
+        <input formControlName="username" type="text"
+               class="form-control"
+               style="padding-left: 2.5rem;"
+               placeholder="Username" required>
+        <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')"
+               style="color: red;">*Username is required</small>
+      </div>
+  
+      <div style="position: relative; margin-bottom: 1.5rem;">
+        <span class="fa fa-lock"
+              style="position: absolute; left: 15px; top: 0; bottom: 0; margin: auto; height: 100%; display: flex; align-items: center; color: #6c757d;"></span>
+        <input formControlName="password" type="password"
+               class="form-control"
+               style="padding-left: 2.5rem;"
+               placeholder="Password" required>
+        <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')"
+               style="color: red;">*Password is required</small>
+      </div>
+  
+      <button type="submit" class="btn btn-primary w-100 mb-3">Login</button>
+  
+      <div class="d-flex justify-content-between" style="font-size: 0.875rem;">
+        <a href="#" style="text-decoration: none; color: #6c757d;">Forgot Password?</a>
+        <a href="#" style="text-decoration: none; color: #6c757d;">Sign Up</a>
+      </div>
+    </form>
+  </div>
+  
+  
+
